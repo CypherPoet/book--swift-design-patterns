@@ -2,7 +2,7 @@ import Foundation
 
 
 class Calendar {
-    weak var delegate: CalendarDelegate?
+    var delegate: CalendarDelegate?
     var dataSource: CalendarDataSource?
     
     var selectedDate: Date {

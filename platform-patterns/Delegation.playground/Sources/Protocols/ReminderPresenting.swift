@@ -1,5 +1,5 @@
 import Foundation
 
 protocol ReminderPresenting {
-    func yearChanged(to year: Int)
+    mutating func yearChanged(to year: Int)
 }

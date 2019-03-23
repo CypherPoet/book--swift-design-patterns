@@ -5,7 +5,7 @@ import Foundation
  
     Architecturally, this would have role similar to that of a `UITableViewController`
  */
-class Reminders {
+struct Reminders {
     var title: String
     lazy var calendar = Calendar()
     
@@ -19,7 +19,7 @@ class Reminders {
 
 
 extension Reminders: ReminderPresenting {
-    func yearChanged(to year: Int) {
+    mutating func yearChanged(to year: Int) {
         title = "Year: \(year)"
     }
 }

@@ -1,13 +1,13 @@
 import Foundation
 
-class RemindersCalendarDelegate: CalendarDelegate {
+struct RemindersCalendarDelegate: CalendarDelegate {
     var parentController: ReminderPresenting?
     
     func calendar(_ calendar: Calendar, didSelect date: Date) {
         print("You selected the date \"\(date)\"")
     }
     
-    func calendar(_ calendar: Calendar, willDisplay year: Int) {
+    mutating func calendar(_ calendar: Calendar, willDisplay year: Int) {
         parentController?.yearChanged(to: year)
     }
     
