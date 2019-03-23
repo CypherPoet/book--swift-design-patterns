@@ -12,24 +12,14 @@ class Reminders {
     init(title: String = "Year: 2020") {
         self.title = title
 
-        calendar.delegate = self
+        calendar.delegate = RemindersCalendarDelegate()
         calendar.dataSource = RemindersCalendarDataSource()
     }
 }
 
 
-// MARK: - CalendarDelegate
-
-extension Reminders: CalendarDelegate {
-    func calendar(_ calendar: Calendar, didSelect date: Date) {
-        print("You selected the date \"\(date)\"")
-    }
-    
-    func calendar(_ calendar: Calendar, willDisplay year: Int) {
+extension Reminders: ReminderPresenting {
+    func yearChanged(to year: Int) {
         title = "Year: \(year)"
-    }
-    
-    func calendarShouldChangeYear(_ calendar: Calendar) -> Bool {
-        return true
     }
 }
