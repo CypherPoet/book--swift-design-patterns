@@ -1,5 +1,10 @@
 import Foundation
 
+/**
+    An app-specific class.
+ 
+    Architecturally, this would have role similar to that of a `UITableViewController`
+ */
 class Reminders {
     var title: String
     lazy var calendar = Calendar()
@@ -8,7 +13,7 @@ class Reminders {
         self.title = title
 
         calendar.delegate = self
-        calendar.dataSource = self
+        calendar.dataSource = RemindersCalendarDataSource()
     }
 }
 
@@ -26,18 +31,5 @@ extension Reminders: CalendarDelegate {
     
     func calendarShouldChangeYear(_ calendar: Calendar) -> Bool {
         return true
-    }
-}
-
-
-// MARK: - CalendarDataSource
-
-extension Reminders: CalendarDataSource {
-    func calendar(_ calendar: Calendar, add event: String, to date: Date) {
-        print("Adding a new event to your itinerary for \(date): \"\(event)\"")
-    }
-    
-    func calendar(_ calendar: Calendar, eventsFor date: Date) -> [String] {
-        return ["Write magical Swift code", "World domination", "Read"]
     }
 }
