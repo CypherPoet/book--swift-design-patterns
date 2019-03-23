@@ -3,6 +3,7 @@ import Foundation
 
 class Calendar {
     weak var delegate: CalendarDelegate?
+    var dataSource: CalendarDataSource?
     
     var selectedDate: Date {
         didSet {
@@ -29,6 +30,17 @@ class Calendar {
 }
 
 
+// MARK: - Computed Properties
+
+extension Calendar {
+    var selectedDateEvents: [String]? {
+        return dataSource?.calendar(self, eventsFor: selectedDate)
+    }
+}
+
+
+// MARK: - Core Methods
+
 extension Calendar {
     func changeDate(to date: Date) {
         selectedDate = date
@@ -38,6 +50,10 @@ extension Calendar {
         if delegate?.calendarShouldChangeYear(self) ?? true {
             currentYear = year
         }
+    }
+    
+    func add(event: String) {
+        dataSource?.calendar(self, add: event, to: selectedDate)
     }
 }
 
