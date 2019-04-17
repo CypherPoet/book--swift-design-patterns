@@ -3,5 +3,6 @@
     <pages>
         <page name='Implementing NSCoding'/>
         <page name='Basic Codable'/>
+        <page name='Custom Codable'/>
     </pages>
 </playground>

@@ -42,7 +42,7 @@ func decode(settingsData: Data) -> Settings? {
     decoder.dateDecodingStrategy = .custom({ (decoder: Decoder) -> Date in
         let container = try decoder.singleValueContainer()
         print(try container.decode(String.self))
-        
+
         return Date()
     })
     
