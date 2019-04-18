@@ -4,5 +4,7 @@
         <page name='Implementing NSCoding'/>
         <page name='Basic Codable'/>
         <page name='Custom Codable'/>
+        <page name='NSCoding and Codable Compatibility'/>
+        <page name='Nested Hierarchies'/>
     </pages>
 </playground>

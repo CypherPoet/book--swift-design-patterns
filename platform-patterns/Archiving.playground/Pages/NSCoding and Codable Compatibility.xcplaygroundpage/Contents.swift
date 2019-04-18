@@ -53,7 +53,7 @@ if let data = encode(settings: settings) {
     let newSettings = decodeSettings(from: data)
     
     print("New Settings:\n\n")
-    print(newSettings)
+    print(newSettings!)
 }
 
 
